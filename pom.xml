@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>1db263d6-71d0-4c08-ab8c-b6ed77a2f6ef</groupId>
-	<artifactId>cicd-hello-api</artifactId>
+	<artifactId>hello-api</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>mule-application</packaging>
 
@@ -27,7 +27,6 @@
 			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>mule-maven-plugin</artifactId>
-				<version>4.2.0</version>
 				<extensions>true</extensions>
 				<configuration>
 					<classifier>mule-application</classifier>
