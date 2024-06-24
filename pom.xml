@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>79012851-6f4b-493d-b27d-2c46ad8bed77</groupId>
-	<artifactId>hello-api-1</artifactId>
+	<artifactId>hello-api-cic</artifactId>
 	<version>1.0.0</version>
 	<packaging>mule-application</packaging>
 
-	<name>hello-api-1</name>
+	<name>hello-api-cic</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -27,6 +27,7 @@
 			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>mule-maven-plugin</artifactId>
+				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
 					<classifier>mule-application</classifier>
@@ -35,11 +36,19 @@
 						<provider>MC</provider>
 						<environment>Sandbox</environment>
 						<target>Cloudhub-US-East-2</target>
+						<muleVersion>4.4.0</muleVersion>
 						<server>Repository</server>
 						<applicationName>${project.artifactId}</applicationName>
 						<releaseChannel>EDGE</releaseChannel>
 						<replicas>1</replicas>
 						<vCores>0.1</vCores>
+						<integrations>
+						<services>
+						<objectStoreV2>
+						<enabled>true</enabled>
+						</objectStoreV2>
+						</services>
+						</integrations>
 						<deploymentSettings>
 							<generateDefaultPublicUrl>true</generateDefaultPublicUrl>
 						</deploymentSettings>
