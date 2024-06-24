@@ -1,9 +1,7 @@
 <?xml version="1.0"?>
 <settings>
 
-  <pluginGroups>
-    <pluginGroup>org.mule.tools</pluginGroup>
-  </pluginGroups>
+
 
   <servers>
     <server>
