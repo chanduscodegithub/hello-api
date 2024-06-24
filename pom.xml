@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>79012851-6f4b-493d-b27d-2c46ad8bed77</groupId>
-	<artifactId>hello-api-cic</artifactId>
+	<artifactId>hello-api-cicdd</artifactId>
 	<version>1.0.0</version>
 	<packaging>mule-application</packaging>
 
