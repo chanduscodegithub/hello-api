@@ -27,7 +27,7 @@
 			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>mule-maven-plugin</artifactId>
-				<version>4.1.0</version>
+				<version>4.2.0</version>
 				<extensions>true</extensions>
 				<configuration>
 					<classifier>mule-application</classifier>
