@@ -7,7 +7,7 @@
 	<version>1.0.0</version>
 	<packaging>mule-application</packaging>
 
-	<name>hello-api-c</name>
+	<name>hello-api-2345</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -33,7 +33,7 @@
 <plugin>
     <groupId>org.apache.maven.plugins</groupId>
     <artifactId>maven-deploy-plugin</artifactId>
-    <version>3.2.0</version>
+    <version>2.8.2</version>
 </plugin>
 			
 			
@@ -55,6 +55,12 @@
 						<releaseChannel>EDGE</releaseChannel>
 						<replicas>1</replicas>
 						<vCores>0.1</vCores>
+						<deploymentSettings>
+						<http>
+						<inbound>
+						<forwardSslSession>false</forwardSslSession>
+						</inbound></http>
+						</deploymentSettings>
 						
 						<integrations>
 						<services>
