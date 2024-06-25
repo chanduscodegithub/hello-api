@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>8970a8f6-84b6-48e7-937d-c4a25b006e5a</groupId>
-    <artifactId>hello-api-mkmnmm</artifactId>
+    <artifactId>hello-api-76</artifactId>
     <version>1.0.0</version>
     <packaging>mule-application</packaging>
 
-    <name>hello-api-mkmnmm</name>
+    <name>hello-api-76</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
