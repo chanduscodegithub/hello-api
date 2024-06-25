@@ -55,6 +55,8 @@
                         <applicationName>${project.artifactId}</applicationName>
                         <replicas>${env.replicas}</replicas>
                         <vCores>${env.vCores}</vCores>
+                        <workerType>MICRO</workerType>
+                        <objectStoreV2>true</objectStoreV2>
                         <businessGroup>${env.businessGroup}</businessGroup>
                         <businessGroupId>${env.businessGroupId}</businessGroupId>
                         <deploymentSettings>
