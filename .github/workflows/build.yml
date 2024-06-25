@@ -5,8 +5,7 @@ on:
     branches: [dev]
 
 env:
-  NEXUS_USERNAME: ${{ secrets.NEXUSUSERNAME }}
-  NEXUS_PASSWORD: ${{ secrets.NEXUSPASSWORD }}
+ 
   CONNECTEDAPPCLIENTID: ${{ secrets.CONNECTEDAPPCLIENTID }}
   CONNECTEDAPPCLIENTSECRET: ${{ secrets.CONNECTEDAPPCLIENTSECRET }}  
   target: ${{ vars.TARGET }} 
@@ -14,9 +13,9 @@ env:
   vCores: ${{ vars.VCORES }} 
   businessGroup: ${{ vars.BUSINESSGROUP }} 
   businessGroupId: ${{ vars.BUSINESSGROUPID }} 
-  muleenv: ${{ vars.MULEENV }}
+ 
   envname: ${{ vars.ENVNAME }}
-  secretkey: ${{ secrets.SECRETKEY }}
+  
   anypointplatformclientid: ${{ secrets.ANYPOINTPLATFORMCLIENTID }}
   anypointplatformclientsecret: ${{ secrets.ANYPOINTPLATFORMCLIENTSECRET }}
   muleVersion: ${{ vars.muleVersion }}
@@ -39,8 +38,7 @@ jobs:
           echo "vCores=${{ env.vCores }}" >> $GITHUB_ENV
           echo "businessGroup=${{ env.businessGroup }}" >> $GITHUB_ENV
           echo "businessGroupId=${{ env.businessGroupId }}" >> $GITHUB_ENV         
-          echo "muleenv=${{ env.muleenv }}" >> $GITHUB_ENV
-          echo "secretkey=${{ env.secretkey }}" >> $GITHUB_ENV
+         
           echo "anypointplatformclientid=${{ env.anypointplatformclientid }}" >> $GITHUB_ENV
           echo "anypointplatformclientsecret=${{ env.anypointplatformclientsecret }}" >> $GITHUB_ENV
           echo "envname=${{env.envname}}" >> $GITHUB_ENV
