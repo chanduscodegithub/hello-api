@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>8970a8f6-84b6-48e7-937d-c4a25b006e5a</groupId>
-    <artifactId>hello-api-mkmn</artifactId>
+    <artifactId>hello-api-mkmnm</artifactId>
     <version>1.0.0</version>
     <packaging>mule-application</packaging>
 
-    <name>hello-api-mkmn</name>
+    <name>hello-api-mkmnm</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -55,8 +55,8 @@
                         <applicationName>${project.artifactId}</applicationName>
                         <replicas>${env.replicas}</replicas>
                         <vCores>${env.vCores}</vCores>
-                        <workerType>MICRO</workerType>
-                        <objectStoreV2>true</objectStoreV2>
+                        <releaseChannel>EDGE</releaseChannel>
+                        
                         <businessGroup>${env.businessGroup}</businessGroup>
                         <businessGroupId>${env.businessGroupId}</businessGroupId>
                         <deploymentSettings>
