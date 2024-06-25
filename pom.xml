@@ -48,42 +48,31 @@
                         <connectedAppClientId>${env.connectedAppClientId}</connectedAppClientId>
                         <connectedAppClientSecret>${env.connectedAppClientSecret}</connectedAppClientSecret>
                         <connectedAppGrantType>client_credentials</connectedAppGrantType>
-                       
                         <environment>Sandbox</environment>
-                        <target>Cloudhub-US-East-2</target>
+                        <target>${env.target}</target>
                         <muleVersion>${app.runtime}</muleVersion>
-                        <server>Repository</server>
+                        <server>anypoint-exchange-v3</server>
                         <applicationName>${project.artifactId}</applicationName>
-                        <releaseChannel>EDGE</releaseChannel>
-                        <replicas>1</replicas>
-                        <vCores>0.1</vCores>
+                        <replicas>${env.replicas}</replicas>
+                        <vCores>${env.vCores}</vCores>
+                        <businessGroup>${env.businessGroup}</businessGroup>
+                        <businessGroupId>${env.businessGroupId}</businessGroupId>
                         <deploymentSettings>
-                            <http>
-                                <inbound>
-                                    <forwardSslSession>false</forwardSslSession>
-                                </inbound>
-                            </http>
+                            <lastMileSecurity>false</lastMileSecurity>
+                            <forwardSslSession>false</forwardSslSession>
+                            <generateDefaultPublicUrl>false</generateDefaultPublicUrl>
+                            <updateStrategy>recreate</updateStrategy>
                         </deploymentSettings>
-                        <integrations>
-                            <services>
-                                <objectStoreV2>
-                                    <enabled>true</enabled>
-                                </objectStoreV2>
-                            </services>
-                        </integrations>
-                        <deploymentSettings>
-                            <generateDefaultPublicUrl>true</generateDefaultPublicUrl>
-                        </deploymentSettings>
+                        <properties>
+                           
+                            <anypoint.platform.client_id>${env.anypointplatformclientid}</anypoint.platform.client_id>
+                        </properties>
+                        <secureProperties>
+                           
+                            <anypoint.platform.client_secret>${env.anypointplatformclientsecret}</anypoint.platform.client_secret>
+                        </secureProperties>
                     </cloudhub2Deployment>
                 </configuration>
-                
-                
-                
-                
-                
-                
-                
-                
             </plugin>
         </plugins>
     </build>
