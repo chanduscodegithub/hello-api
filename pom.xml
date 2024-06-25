@@ -49,7 +49,7 @@
                         <connectedAppClientSecret>${env.connectedAppClientSecret}</connectedAppClientSecret>
                         <connectedAppGrantType>client_credentials</connectedAppGrantType>
                         <environment>Sandbox</environment>
-                        <target>${env.target}</target>
+                        <target>Cloudhub-US-East-2</target>
                         <muleVersion>${app.runtime}</muleVersion>
                         <server>anypoint-exchange-v3</server>
                         <applicationName>${project.artifactId}</applicationName>
