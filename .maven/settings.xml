@@ -7,6 +7,11 @@
 <password>${env.CONNECTEDAPPCLIENTID}?${env.connectedAppClientSecret}</password>
     </server>
     <server>
+      <id>Repository</id>
+      <username>~~~Client~~~</username>
+<password>${env.CONNECTEDAPPCLIENTID}?${env.connectedAppClientSecret}</password>
+    </server>
+    <server>
       <id>anypoint-exchange-v3</id>
    <username>~~~Client~~~</username>
 <password>${env.CONNECTEDAPPCLIENTID}?${env.connectedAppClientSecret}</password>
