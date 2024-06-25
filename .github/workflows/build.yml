@@ -52,6 +52,16 @@ jobs:
 
       - name: Build with Maven
         run: mvn -B clean package -s .maven/settings.xml
+      - name: Upload Asset orders-prc-api to Exchange        
+        working-directory: hello-api
+       
+        run: |
+         
+         artifactName=$(ls *.jar | head -1)
+         mvn deploy \
+         -s ../.maven/settings.xml \
+         -Dmule.artifact=$artifactName \
+         -DskipTests \
 
       - name: Deploy with Maven
         run: mvn -B deploy -DmuleDeploy -s .maven/settings.xml
