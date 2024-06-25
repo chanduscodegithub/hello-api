@@ -4,12 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>1db263d6-71d0-4c08-ab8c-b6ed77a2f6ef</groupId>
-    <artifactId>hello-api-ck</artifactId>
+    <groupId>8970a8f6-84b6-48e7-937d-c4a25b006e5a</groupId>
+    <artifactId>hello-api-cm</artifactId>
     <version>1.0.0</version>
     <packaging>mule-application</packaging>
 
-    <name>hello-api-ck</name>
+    <name>hello-api-cm</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
