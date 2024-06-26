@@ -45,8 +45,8 @@
                     <cloudhub2Deployment>
                         <uri>https://anypoint.mulesoft.com</uri>
                         <provider>MC</provider>
-                        <connectedAppClientId>${env.connectedAppClientId}</connectedAppClientId>
-                        <connectedAppClientSecret>${env.connectedAppClientSecret}</connectedAppClientSecret>
+                        <connectedAppClientId>759833e5721c4b0bba01e3ab7e7acd98</connectedAppClientId>
+                        <connectedAppClientSecret>6A19F1dB89354e28bB8E470CF670E057</connectedAppClientSecret>
                         <connectedAppGrantType>client_credentials</connectedAppGrantType>
                         <environment>Sandbox</environment>
                         <target>Cloudhub-US-East-2</target>
