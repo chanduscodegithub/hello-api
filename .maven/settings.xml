@@ -16,6 +16,13 @@
    <username>~~~Client~~~</username>
 <password>759833e5721c4b0bba01e3ab7e7acd98?6A19F1dB89354e28bB8E470CF670E057</password>
     </server>
+
+    <server>
+      <id>Repository</id>
+      <username>~~~Client~~~</username>
+      <password>[ClientID]~?~[ClientSecret]</password>
+    </server>
+ 
    
   </servers>
 <!--<localRepository>C:/Users/M2</localRepository>-->
