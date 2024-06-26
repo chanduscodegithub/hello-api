@@ -54,6 +54,8 @@
                        <connectedAppClientId>759833e5721c4b0bba01e3ab7e7acd98</connectedAppClientId>
                        <connectedAppClientSecret>6A19F1dB89354e28bB8E470CF670E057</connectedAppClientSecret>
                        <connectedAppGrantType>client_credentials</connectedAppGrantType>
+                       <username>${env.ANYPOINTPLATFORMCLIENTID}</username>
+                       <password>${env.ANYPOINTPLATFORMCLIENTSECRET}</password>
                         <applicationName>${project.artifactId}</applicationName>
                         <replicas>${env.replicas}</replicas>
                         <vCores>${env.vCores}</vCores>   
