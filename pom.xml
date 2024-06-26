@@ -54,11 +54,8 @@
                         <server>anypoint-exchange-v3</server>
                         <applicationName>${project.artifactId}</applicationName>
                         <replicas>${env.replicas}</replicas>
-                        <vCores>${env.vCores}</vCores>
-                        <workerType>MICRO</workerType>
-                         <workers>1</workers>
-                         <objectStoreV2>true</objectStoreV2>    
-                         <releaseChannel>EDGE</releaseChannel>
+                        <vCores>${env.vCores}</vCores>   
+                        <releaseChannel>EDGE</releaseChannel>
                         <businessGroup>${env.businessGroup}</businessGroup>
                         <businessGroupId>${env.businessGroupId}</businessGroupId>
                         <deploymentSettings>
