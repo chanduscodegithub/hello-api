@@ -51,7 +51,7 @@ jobs:
           cache: maven
 
       - name: Build with Maven
-        run: mvn -B clean package -s .maven/settings.xml
+        run: mvn -B clean package -s ../.maven/settings.xml
       - name: Upload Asset to Exchange        
         
        
@@ -59,7 +59,7 @@ jobs:
          
          artifactName=$(ls *.jar | head -1)
          mvn deploy \
-         -s .maven/settings.xml \
+         -s ../.maven/settings.xml \
          -Dmule.artifact=$artifactName \
          -DskipTests \
 
