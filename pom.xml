@@ -51,7 +51,7 @@
                         <environment>Sandbox</environment>
                         <target>Cloudhub-US-East-2</target>
                         <muleVersion>${app.runtime}</muleVersion>
-                        <server>anypoint-exchange-v3</server>
+                       <server>ca-anypoint-credentials</server>
                         <applicationName>${project.artifactId}</applicationName>
                         <replicas>${env.replicas}</replicas>
                         <vCores>${env.vCores}</vCores>
