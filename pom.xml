@@ -4,17 +4,17 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>8970a8f6-84b6-48e7-937d-c4a25b006e5a</groupId>
-    <artifactId>hello-api</artifactId>
+    <artifactId>hello-api-1</artifactId>
     <version>1.0.0</version>
     <packaging>mule-application</packaging>
 
-    <name>hello-api</name>
+    <name>hello-api-1</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <app.runtime>4.7.0</app.runtime>
-        <mule.maven.plugin.version>4.1.0</mule.maven.plugin.version>
+        <app.runtime>4.4.0</app.runtime>
+        <mule.maven.plugin.version>4.0.0</mule.maven.plugin.version>
     </properties>
 
     <build>
@@ -22,17 +22,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-clean-plugin</artifactId>
-                <version>3.1.0</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-install-plugin</artifactId>
-                <version>2.5.2</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-deploy-plugin</artifactId>
-                <version>2.8.2</version>
+                <version>3.2.0</version>
             </plugin>
             <plugin>
                 <groupId>org.mule.tools.maven</groupId>
@@ -40,51 +30,36 @@
                 <version>${mule.maven.plugin.version}</version>
                 <extensions>true</extensions>
                 <configuration>
-                    <classifier>mule-application</classifier>
                     <cloudhub2Deployment>
                         <uri>https://anypoint.mulesoft.com</uri>
                         <provider>MC</provider>
-                        <environment>${env.ANYPOINT_ENVIRONMENT}</environment>
-                        <username>${env.ANYPOINT_USERNAME}</username>
-                        <password>${env.ANYPOINT_PASSWORD}</password>
-                        <connectedAppClientId>${env.CONNECTEDAPPCLIENTID}</connectedAppClientId>
-                        <connectedAppClientSecret>${env.CONNECTEDAPPCLIENTSECRET}</connectedAppClientSecret>
-                        <applicationName>${project.artifactId}</applicationName>
-                        <businessGroup>${env.BUSINESSGROUP}</businessGroup>
-                        <businessGroupId>${env.BUSINESSGROUPID}</businessGroupId>
-                        <deploymentSettings>
-                            <lastMileSecurity>false</lastMileSecurity>
-                            <forwardSslSession>false</forwardSslSession>
-                            <generateDefaultPublicUrl>false</generateDefaultPublicUrl>
-                            <updateStrategy>recreate</updateStrategy>
-                        </deploymentSettings>
+                        <environment>Sandbox</environment>
+                        <target>CloudHub-US-East-2</target>
+                        <muleVersion>4.4.0</muleVersion>
+                        <server>ca-anypoint-credentials</server>
+                        <applicationName>chandu-demo-proj</applicationName>
+                        <replicas>1</replicas>
+                        <vCores>0.1</vCores>
+                        <skipDeploymentVerification>${skipDeploymentVerification}</skipDeploymentVerification>
+                        <integrations>
+                            <services>
+                                <objectStoreV2>
+                                    <enabled>true</enabled>
+                                </objectStoreV2>
+                            </services>
+                        </integrations>
                     </cloudhub2Deployment>
-                    <exchangeDeployment>
-                        <uri>https://anypoint.mulesoft.com</uri>
-                        <username>${env.ANYPOINT_USERNAME}</username>
-                        <password>${env.ANYPOINT_PASSWORD}</password>
-                        <organizationId>${env.BUSINESSGROUPID}</organizationId>
-                        <connectedAppClientId>${env.CONNECTEDAPPCLIENTID}</connectedAppClientId>
-                        <connectedAppClientSecret>${env.CONNECTEDAPPCLIENTSECRET}</connectedAppClientSecret>
-                    </exchangeDeployment>
                 </configuration>
             </plugin>
         </plugins>
     </build>
 
-    <repositories>
-        <repository>
-            <id>anypoint-exchange-v3</id>
-            <name>Anypoint Exchange</name>
-            <url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
-        </repository>
-    </repositories>
-
     <distributionManagement>
         <repository>
-            <id>anypoint-exchange-v3</id>
+            <id>ca.anypoint.credentials</id>
             <name>Corporate Repository</name>
-            <url>https://maven.anypoint.mulesoft.com/api/v3/organizations/${project.groupId}/maven</url>
+            <url>https://maven.anypoint.mulesoft.com/api/v2/organizations/${project.groupId}/maven</url>
+            <layout>default</layout>
         </repository>
     </distributionManagement>
 </project>
