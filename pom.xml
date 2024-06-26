@@ -6,7 +6,7 @@
 
     <groupId>8970a8f6-84b6-48e7-937d-c4a25b006e5a</groupId>
     <artifactId>hello-api</artifactId>
-    <version>1.0.0</version>
+    <version>${mule.maven.plugin.version}</version>
     <packaging>mule-application</packaging>
 
     <name>hello-api</name>
@@ -45,17 +45,20 @@
                     <cloudhub2Deployment>
                         <uri>https://anypoint.mulesoft.com</uri>
                         <provider>MC</provider>
-                        <connectedAppClientId>759833e5721c4b0bba01e3ab7e7acd98</connectedAppClientId>
-                        <connectedAppClientSecret>6A19F1dB89354e28bB8E470CF670E057</connectedAppClientSecret>
-                        <connectedAppGrantType>client_credentials</connectedAppGrantType>
+                   
                         <environment>Sandbox</environment>
+                        <username>${username}</username>
+                        <password>${password}</password>
                         <target>Cloudhub-US-East-2</target>
                         <muleVersion>${app.runtime}</muleVersion>
                         <server>anypoint-exchange-v3</server>
                         <applicationName>${project.artifactId}</applicationName>
                         <replicas>${env.replicas}</replicas>
                         <vCores>${env.vCores}</vCores>
-                        <releaseChannel>EDGE</releaseChannel>
+                        <workerType>MICRO</workerType>
+                         <workers>1</workers>
+                         <objectStoreV2>true</objectStoreV2>    
+                         <releaseChannel>EDGE</releaseChannel>
                         <businessGroup>${env.businessGroup}</businessGroup>
                         <businessGroupId>${env.businessGroupId}</businessGroupId>
                         <deploymentSettings>
