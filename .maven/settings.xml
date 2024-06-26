@@ -3,7 +3,7 @@
           xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
     <servers>
         <server>
-            <id>ca.anypoint.credentials</id>
+            <id>ca-anypoint-credentials</id>
             <username>${CONNECTEDAPPCLIENTID}</username>
             <password>${CONNECTEDAPPCLIENTSECRET}</password>
         </server>
