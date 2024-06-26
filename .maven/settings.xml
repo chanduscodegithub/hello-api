@@ -2,13 +2,11 @@
 <settings>
   <servers>
 ...
-    <server>
-
-        <id>MuleRepository</id>
-        <username>mahamulesoft</username>
-        <password>Maha@1234</password>
-
-    </server>
+  <server>
+      <id>Repository</id>
+      <username>~~~Client~~~</username> 
+      <password>clientID~?~clientSecret</password>
+ </server>
 ...
 </servers>
   
