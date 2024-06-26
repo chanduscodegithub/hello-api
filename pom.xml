@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>8970a8f6-84b6-48e7-937d-c4a25b006e5a</groupId>
+    <groupId>1db263d6-71d0-4c08-ab8c-b6ed77a2f6ef</groupId>
     <artifactId>hello-api</artifactId>
     <version>1.0.0</version>
     <packaging>mule-application</packaging>
@@ -45,7 +45,7 @@
                     <cloudhub2Deployment>
 		<uri>https://anypoint.mulesoft.com</uri>
 		<provider>MC</provider>
-		<environment>Sandbox</environment>
+		<environment>DEV</environment>
 		<target>Cloudhub-US-East-2</target>
 		<muleVersion>4.4.0</muleVersion>
 		<server>ca-anypoint-credentials</server>
