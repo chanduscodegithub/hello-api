@@ -4,17 +4,17 @@
     <server>
       <id>Exchange2</id>
       <username>~~~Client~~~</username>
-<password>${env.CONNECTEDAPPCLIENTID}?${env.connectedAppClientSecret}</password>
+<password>${env.CONNECTEDAPPCLIENTID}?${env.CONNECTEDAPPCLIENTSECRET}</password>
     </server>
     <server>
       <id>Repository</id>
       <username>~~~Client~~~</username>
-<password>${env.CONNECTEDAPPCLIENTID}?${env.connectedAppClientSecret}</password>
+<password>${env.CONNECTEDAPPCLIENTID}?${env.CONNECTEDAPPCLIENTSECRET}</password>
     </server>
     <server>
       <id>anypoint-exchange-v3</id>
    <username>~~~Client~~~</username>
-<password>${env.CONNECTEDAPPCLIENTID}?${env.connectedAppClientSecret}</password>
+<password>${env.CONNECTEDAPPCLIENTID}?${env.CONNECTEDAPPCLIENTSECRET}</password>
     </server>
    
   </servers>
