@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>1db263d6-71d0-4c08-ab8c-b6ed77a2f6ef</groupId>
+	<groupId>8970a8f6-84b6-48e7-937d-c4a25b006e5a</groupId>
 	<artifactId>hello-api</artifactId>
 	<version>1.0.2</version>
 	<packaging>mule-application</packaging>
@@ -33,11 +33,11 @@
 					<cloudhub2Deployment>
 						<uri>https://anypoint.mulesoft.com</uri>
 						<provider>MC</provider>
-						<environment>DEV</environment>
+						<environment>Sandbox</environment>
 						<target>Cloudhub-US-East-2</target>
 						<muleVersion>4.4.0</muleVersion>
 						<server>ca.anypoint.credentials</server>
-						<applicationName>ashish-demo-project-v1</applicationName>
+						<applicationName>chandrika-demo-project-v1</applicationName>
 						<replicas>1</replicas>
 						<vCores>0.1</vCores>
 						<skipDeploymentVerification>${skipDeploymentVerification}</skipDeploymentVerification>
