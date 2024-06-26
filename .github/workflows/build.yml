@@ -1,16 +1,18 @@
+# This workflow will build a MuleSoft project and deploy to CloudHub
+
 name: Build and Deploy to Sandbox
 
 on:
   push:
-    branches: [dev]
+    branches: [ dev ]
   workflow_dispatch:
-
+    
 jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      CONNECTEDAPPCLIENTID: ${{ secrets.CONNECTEDAPPCLIENTID }}
-      CONNECTEDAPPCLIENTSECRET: ${{ secrets.CONNECTEDAPPCLIENTSECRET }}
+      CA_CLIENT_ID: ${{ secrets.CA_CLIENT_ID }}
+      CA_CLIENT_SECRET: ${{ secrets.CA_CLIENT_SECRET }}
     
     steps:
     
@@ -43,17 +45,19 @@ jobs:
         mv $artifactName1 $artifactName2
     
     - name: Upload artifact 
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@master
       with:
           name: artifacts
           path: target/*.jar
+          
+          
           
   upload:
     needs: build
     runs-on: ubuntu-latest
     env:
-      CONNECTEDAPPCLIENTID: ${{ secrets.CONNECTEDAPPCLIENTID }}
-      CONNECTEDAPPCLIENTSECRET: ${{ secrets.CONNECTEDAPPCLIENTSECRET }}
+      CA_CLIENT_ID: ${{ secrets.CA_CLIENT_ID }}
+      CA_CLIENT_SECRET: ${{ secrets.CA_CLIENT_SECRET }}
 
     steps:    
     
@@ -66,7 +70,7 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-maven-
     
-    - uses: actions/download-artifact@v3
+    - uses: actions/download-artifact@master
       with:
         name: artifacts
     
@@ -76,15 +80,16 @@ jobs:
         mvn deploy \
          -s .maven/settings.xml \
          -Dmule.artifact=$artifactName \
-         -Dclient.id="${{ secrets.CONNECTEDAPPCLIENTID }}" \
-         -Dclient.secret="${{ secrets.CONNECTEDAPPCLIENTSECRET }}"
+       
     
+ 
+        
   deploy:
     needs: upload
     runs-on: ubuntu-latest
     env:
-      CONNECTEDAPPCLIENTID: ${{ secrets.CONNECTEDAPPCLIENTID }}
-      CONNECTEDAPPCLIENTSECRET: ${{ secrets.CONNECTEDAPPCLIENTSECRET }}
+      CA_CLIENT_ID: ${{ secrets.CA_CLIENT_ID }}
+      CA_CLIENT_SECRET: ${{ secrets.CA_CLIENT_SECRET }}
 
     steps:    
     
@@ -97,15 +102,16 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-maven-
     
-    - uses: actions/download-artifact@v3
+    - uses: actions/download-artifact@master
       with:
         name: artifacts
     
     - name: Deploy to Sandbox
       run: |
         artifactName=$(ls *.jar | head -1)
-        mvn mule:deploy -DmuleDeploy \
+        mvn deploy -DmuleDeploy \
          -Dmule.artifact=$artifactName \
          -s .maven/settings.xml \
          -DskipTests \
          -DskipDeploymentVerification="true"
+         
