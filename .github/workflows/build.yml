@@ -2,9 +2,9 @@ name: Build and Deploy to Sandbox
 
 on:
   push:
-    branches: [ dev ]
+    branches: [dev]
   workflow_dispatch:
-    
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -43,12 +43,10 @@ jobs:
         mv $artifactName1 $artifactName2
     
     - name: Upload artifact 
-      uses: actions/upload-artifact@master
+      uses: actions/upload-artifact@v3
       with:
           name: artifacts
           path: target/*.jar
-          
-          
           
   upload:
     needs: build
@@ -68,7 +66,7 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-maven-
     
-    - uses: actions/download-artifact@master
+    - uses: actions/download-artifact@v3
       with:
         name: artifacts
     
@@ -78,10 +76,9 @@ jobs:
         mvn deploy \
          -s .maven/settings.xml \
          -Dmule.artifact=$artifactName \
-       
+         -Dclient.id="${{ secrets.CONNECTEDAPPCLIENTID }}" \
+         -Dclient.secret="${{ secrets.CONNECTEDAPPCLIENTSECRET }}"
     
- 
-        
   deploy:
     needs: upload
     runs-on: ubuntu-latest
@@ -100,15 +97,15 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-maven-
     
-    - uses: actions/download-artifact@master
+    - uses: actions/download-artifact@v3
       with:
         name: artifacts
     
     - name: Deploy to Sandbox
       run: |
         artifactName=$(ls *.jar | head -1)
-        mvn deploy -DmuleDeploy \
+        mvn mule:deploy -DmuleDeploy \
          -Dmule.artifact=$artifactName \
          -s .maven/settings.xml \
          -DskipTests \
-         -DskipDeploymentVerification="true"
+         -DskipDeploymentVerification="true"
