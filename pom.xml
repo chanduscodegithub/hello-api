@@ -45,23 +45,20 @@
                     <cloudhub2Deployment>
                         <uri>https://anypoint.mulesoft.com</uri>
                         <provider>MC</provider>
-                   
                         <environment>Sandbox</environment>
-                        <username>${username}</username>
-                        <password>${password}</password>
+                        <username>${env.ANYPOINT_USERNAME}</username>
+                        <password>${env.ANYPOINT_PASSWORD}</password>
                         <target>Cloudhub-US-East-2</target>
                         <muleVersion>${app.runtime}</muleVersion>
-                       <connectedAppClientId>759833e5721c4b0bba01e3ab7e7acd98</connectedAppClientId>
-                       <connectedAppClientSecret>6A19F1dB89354e28bB8E470CF670E057</connectedAppClientSecret>
-                       <connectedAppGrantType>client_credentials</connectedAppGrantType>
-                       <username>${env.ANYPOINTPLATFORMCLIENTID}</username>
-                       <password>${env.ANYPOINTPLATFORMCLIENTSECRET}</password>
+                        <connectedAppClientId>${env.CONNECTEDAPPCLIENTID}</connectedAppClientId>
+                        <connectedAppClientSecret>${env.CONNECTEDAPPCLIENTSECRET}</connectedAppClientSecret>
+                        <connectedAppGrantType>client_credentials</connectedAppGrantType>
                         <applicationName>${project.artifactId}</applicationName>
-                        <replicas>${env.replicas}</replicas>
-                        <vCores>${env.vCores}</vCores>   
+                        <replicas>${env.REPLICAS}</replicas>
+                        <vCores>${env.VCORES}</vCores>
                         <releaseChannel>EDGE</releaseChannel>
-                        <businessGroup>${env.businessGroup}</businessGroup>
-                        <businessGroupId>${env.businessGroupId}</businessGroupId>
+                        <businessGroup>${env.BUSINESSGROUP}</businessGroup>
+                        <businessGroupId>${env.BUSINESSGROUPID}</businessGroupId>
                         <deploymentSettings>
                             <lastMileSecurity>false</lastMileSecurity>
                             <forwardSslSession>false</forwardSslSession>
@@ -69,12 +66,10 @@
                             <updateStrategy>recreate</updateStrategy>
                         </deploymentSettings>
                         <properties>
-                           
-                            <anypoint.platform.client_id>${env.anypointplatformclientid}</anypoint.platform.client_id>
+                            <anypoint.platform.client_id>${env.ANYPOINTPLATFORMCLIENTID}</anypoint.platform.client_id>
                         </properties>
                         <secureProperties>
-                           
-                            <anypoint.platform.client_secret>${env.anypointplatformclientsecret}</anypoint.platform.client_secret>
+                            <anypoint.platform.client_secret>${env.ANYPOINTPLATFORMCLIENTSECRET}</anypoint.platform.client_secret>
                         </secureProperties>
                     </cloudhub2Deployment>
                 </configuration>
