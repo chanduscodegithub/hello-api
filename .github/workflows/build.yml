@@ -69,6 +69,13 @@ jobs:
         env:
           ANYPOINT_USERNAME: ${{ secrets.ANYPOINT_USERNAME }}
           ANYPOINT_PASSWORD: ${{ secrets.ANYPOINT_PASSWORD }}
+          CONNECTEDAPPCLIENTID: ${{ secrets.CONNECTEDAPPCLIENTID }}
+          CONNECTEDAPPCLIENTSECRET: ${{ secrets.CONNECTEDAPPCLIENTSECRET }}
+          ANYPOINTPLATFORMCLIENTID: ${{ secrets.ANYPOINTPLATFORMCLIENTID }}
+          ANYPOINTPLATFORMCLIENTSECRET: ${{ secrets.ANYPOINTPLATFORMCLIENTSECRET }}
+          BUSINESSGROUP: ${{ secrets.BUSINESSGROUP }}
+          BUSINESSGROUPID: ${{ secrets.BUSINESSGROUPID }}
+          REPLICAS: ${{ secrets.REPLICAS }}
         run: |
           artifactName=$(ls *.jar | head -1)
           mvn mule:deploy -Dmule.artifact=$artifactName -Dusername=$ANYPOINT_USERNAME -Dpassword=$ANYPOINT_PASSWORD
