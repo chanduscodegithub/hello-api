@@ -4,17 +4,17 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>8970a8f6-84b6-48e7-937d-c4a25b006e5a</groupId>
-    <artifactId>hello-api-1</artifactId>
+    <artifactId>hello-api</artifactId>
     <version>1.0.0</version>
     <packaging>mule-application</packaging>
 
-    <name>hello-api-1</name>
+    <name>hello-api</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <app.runtime>4.4.0</app.runtime>
-        <mule.maven.plugin.version>4.0.0</mule.maven.plugin.version>
+        <mule.maven.plugin.version>4.1.0</mule.maven.plugin.version>
     </properties>
 
     <build>
