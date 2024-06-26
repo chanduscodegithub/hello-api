@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -13,7 +14,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <app.runtime>4.6.0</app.runtime>
+        <app.runtime>4.7.0</app.runtime>
         <mule.maven.plugin.version>4.1.0</mule.maven.plugin.version>
     </properties>
 
@@ -22,7 +23,17 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-clean-plugin</artifactId>
-                <version>3.2.0</version>
+                <version>3.1.0</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>2.5.2</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.8.2</version>
             </plugin>
             <plugin>
                 <groupId>org.mule.tools.maven</groupId>
@@ -30,31 +41,98 @@
                 <version>${mule.maven.plugin.version}</version>
                 <extensions>true</extensions>
                 <configuration>
+                    <classifier>mule-application</classifier>
                     <cloudhub2Deployment>
                         <uri>https://anypoint.mulesoft.com</uri>
                         <provider>MC</provider>
+                        <connectedAppClientId>${env.connectedAppClientId}</connectedAppClientId>
+                        <connectedAppClientSecret>${env.connectedAppClientSecret}</connectedAppClientSecret>
+                        <connectedAppGrantType>client_credentials</connectedAppGrantType>
                         <environment>Sandbox</environment>
-                        <target>CloudHub-US-East-2</target>
-                        <muleVersion>4.4.0</muleVersion>
-                        <server>ca-anypoint-credentials</server>
-                        <applicationName>chandu-demo-proj</applicationName>
-                        <replicas>1</replicas>
-                        <vCores>0.1</vCores>
-                        <skipDeploymentVerification>${skipDeploymentVerification}</skipDeploymentVerification>
-                        <integrations>
-                            <services>
-                                <objectStoreV2>
-                                    <enabled>true</enabled>
-                                </objectStoreV2>
-                            </services>
-                        </integrations>
+                        <target>Cloudhub-US-East-2</target>
+                        <muleVersion>${app.runtime}</muleVersion>
+                        <server>anypoint-exchange-v3</server>
+                        <applicationName>${project.artifactId}</applicationName>
+                        <replicas>${env.replicas}</replicas>
+                        <vCores>${env.vCores}</vCores>
+                        <releaseChannel>EDGE</releaseChannel>
+                        <businessGroup>${env.businessGroup}</businessGroup>
+                        <businessGroupId>${env.businessGroupId}</businessGroupId>
+                        <deploymentSettings>
+                            <lastMileSecurity>false</lastMileSecurity>
+                            <forwardSslSession>false</forwardSslSession>
+                            <generateDefaultPublicUrl>false</generateDefaultPublicUrl>
+                            <updateStrategy>recreate</updateStrategy>
+                        </deploymentSettings>
+                        <properties>
+                           
+                            <anypoint.platform.client_id>${env.anypointplatformclientid}</anypoint.platform.client_id>
+                        </properties>
+                        <secureProperties>
+                           
+                            <anypoint.platform.client_secret>${env.anypointplatformclientsecret}</anypoint.platform.client_secret>
+                        </secureProperties>
                     </cloudhub2Deployment>
                 </configuration>
             </plugin>
         </plugins>
     </build>
 
-    <distributionManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.mule.connectors</groupId>
+            <artifactId>mule-http-connector</artifactId>
+            <version>1.9.1</version>
+            <classifier>mule-plugin</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.mule.connectors</groupId>
+            <artifactId>mule-sockets-connector</artifactId>
+            <version>1.2.4</version>
+            <classifier>mule-plugin</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.core</groupId>
+            <artifactId>jersey-common</artifactId>
+            <version>2.26</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>anypoint-exchange-v3</id>
+            <name>Anypoint Exchange</name>
+            <url>https://maven.anypoint.mulesoft.com/api/v3/maven</url>
+            <layout>default</layout>
+        </repository>
+        <repository>
+            <id>mulesoft-releases</id>
+            <name>MuleSoft Releases Repository</name>
+            <url>https://repository.mulesoft.org/releases/</url>
+            <layout>default</layout>
+        </repository>
+        <repository>
+            <id>Repository</id>
+            <name>Private Exchange repository</name>
+            <url>https://maven.anypoint.mulesoft.com/api/v3/organizations/${project.groupId}/maven</url>
+            <layout>default</layout>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>mulesoft-releases</id>
+            <name>MuleSoft Releases Repository</name>
+            <url>https://repository.mulesoft.org/releases/</url>
+            <layout>default</layout>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+     <distributionManagement>
         <repository>
             <id>ca-anypoint-credentials</id>
             <name>Corporate Repository</name>
@@ -62,4 +140,5 @@
             <layout>default</layout>
         </repository>
     </distributionManagement>
+
 </project>
