@@ -44,6 +44,17 @@ jobs:
           name: artifacts
           path: target/*.jar
 
+      - name: Publish to Anypoint Exchange
+        env:
+          ANYPOINT_USERNAME: ${{ secrets.ANYPOINT_USERNAME }}
+          ANYPOINT_PASSWORD: ${{ secrets.ANYPOINT_PASSWORD }}
+          CONNECTEDAPPCLIENTID: ${{ secrets.CONNECTEDAPPCLIENTID }}
+          CONNECTEDAPPCLIENTSECRET: ${{ secrets.CONNECTEDAPPCLIENTSECRET }}
+          BUSINESSGROUPID: ${{ secrets.BUSINESSGROUPID }}
+        run: |
+          artifactName=$(ls target/*.jar | head -1)
+          mvn mule:deploy -Dmule.artifact=$artifactName -Dusername=$ANYPOINT_USERNAME -Dpassword=$ANYPOINT_PASSWORD -Danypoint.organizationId=$BUSINESSGROUPID -Danypoint.connectedAppClientId=$CONNECTEDAPPCLIENTID -Danypoint.connectedAppClientSecret=$CONNECTEDAPPCLIENTSECRET -Dmule.publishToExchange=true
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -78,4 +89,4 @@ jobs:
           REPLICAS: ${{ secrets.REPLICAS }}
         run: |
           artifactName=$(ls *.jar | head -1)
-          mvn mule:deploy -Dmule.artifact=$artifactName -Dusername=$ANYPOINT_USERNAME -Dpassword=$ANYPOINT_PASSWORD
+          mvn mule:deploy -Dmule.artifact=$artifactName -Dusername=$ANYPOINT_USERNAME -Dpassword=$ANYPOINT_PASSWORD -DconnectedAppClientId=$CONNECTEDAPPCLIENTID -DconnectedAppClientSecret=$CONNECTEDAPPCLIENTSECRET -DbusinessGroupId=$BUSINESSGROUPID -Dreplicas=$REPLICAS
