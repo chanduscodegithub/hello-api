@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>8970a8f6-84b6-48e7-937d-c4a25b006e5a</groupId>
-    <artifactId>hello-api</artifactId>
+    <artifactId>hello-api-1</artifactId>
     <version>${mule.maven.plugin.version}</version>
     <packaging>mule-application</packaging>
 
