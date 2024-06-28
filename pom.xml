@@ -5,7 +5,7 @@
 
     <groupId>8970a8f6-84b6-48e7-937d-c4a25b006e5a</groupId>
     <artifactId>hello-api</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <packaging>mule-application</packaging>
 
     <name>hello-api</name>
